@@ -1,0 +1,73 @@
+#!/usr/bin/python
+
+import subprocess
+import time
+import os
+
+SPEECHFILE = "/tmp/comitup-demo.txt"
+
+
+# these commands output tags for each event of each kind
+
+# someone new connected to the Access Point
+apcmd = "iw dev wlan0 station dump | grep Station | awk '{print \"ap-\" $2}'"
+
+# someone new accessed a comitup-web web page
+webcmd = "grep comitup-web /var/log/syslog | grep HTTP | grep GET | " \
+         "awk '{print \"web-\" $6 }'"
+
+# there is a successful connection to the upstream wifi
+concmd = "iw dev wlan1 info | grep ssid | awk '{print \"connect-\" $2}'"
+
+
+def run_cmd(cmd):
+    try:
+        out = subprocess.check_output(cmd, shell=True).decode()
+    except subprocess.CalledProcessError:
+        out = ""
+
+    return out
+
+
+def say(statement):
+    run_cmd("echo \"%s\" | festival --tts" % statement)
+
+
+def volume(num):
+    """set the audio volume level, from 0 to 100"""
+
+    run_cmd("amixer cset numid=1 -- %d%s" % (num, "%"))
+
+
+def process_cmd(cmd, saythis, said):
+    for tag in run_cmd(cmd).split('\n'):
+        if tag and tag not in said:
+            say(saythis)
+            said = said | set([tag])
+
+    return said
+
+
+def main():
+    with open("/var/log/syslog", 'w') as fp:
+        pass
+
+    volume(70)
+    say('starting comitup demo')
+
+    # a record of tags that have already been noted
+    said = set()
+
+    while True:
+        time.sleep(1)
+        for cmd, phrase in [(apcmd, "AP"), (webcmd, "web"),
+                            (concmd, "Successful connection")]:
+            said = process_cmd(cmd, phrase, said)
+
+        if os.path.exists(SPEECHFILE):
+            run_cmd("festival --tts %s" % SPEECHFILE)
+            os.unlink(SPEECHFILE)
+
+
+if __name__ == '__main__':
+    main()
