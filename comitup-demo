@@ -49,6 +49,11 @@ def process_cmd(cmd, saythis, said):
 
 
 def main():
+
+    run_cmd("rm -f /etc/NetworkManager/system-connections/*")
+    run_cmd("systemctl restart NetworkManager; sleep 1")
+    run_cmd("systemctl restart comitup; sleep 1")
+
     with open("/var/log/syslog", 'w') as fp:
         pass
 
