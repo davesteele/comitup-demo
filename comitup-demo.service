@@ -1,0 +1,9 @@
+[Unit]
+Description=Comitup Audio Demonstration
+After=comitup.service
+
+[Service]
+ExecStart=/usr/local/bin/comitup-demo
+
+[Install]
+WantedBy=multi-user.target

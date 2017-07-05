@@ -1,0 +1,8 @@
+[Unit]
+Description=Comitup Audio Demonstration Web Server
+After=comitup.service
+
+[Service]
+ExecStart=/usr/local/bin/demoweb
+
+[Install]
