@@ -1,6 +1,6 @@
 # comitup-demo
 
-##Description
+## Description
 
 This is a quick-and-dirty demonstration package for the
 [Comitup](https://davesteele.github.io/comitup/) service. When the
@@ -17,7 +17,7 @@ Once connected, a web service is started that will allow the person who
 initiated the successful connection to enter their name, which is then
 announced.
 
-##Requirements
+## Requirements
 
 The demo requires the following:
 
@@ -30,7 +30,7 @@ The demo requires the following:
     - python-flask
     - festival
 
-##Installation
+## Installation
 
 Run *install.sh*, and set the *web_service* parameter in
 */etc/comitup.conf* to *demoweb.service*.
