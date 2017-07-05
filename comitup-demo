@@ -17,7 +17,7 @@ webcmd = "grep comitup-web /var/log/syslog | grep HTTP | grep GET | " \
          "awk '{print \"web-\" $6 }'"
 
 # there is a successful connection to the upstream wifi
-concmd = "iw dev wlan1 info | grep ssid | awk '{print \"connect-\" $2}'"
+concmd = "ip addr show dev wlan1 | grep inet | awk '{print \"connect-\" $2}'"
 
 
 def run_cmd(cmd):
