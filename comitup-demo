@@ -71,7 +71,7 @@ def main():
 
         if os.path.exists(SPEECHFILE):
             run_cmd("festival --tts %s" % SPEECHFILE)
-            os.unlink(SPEECHFILE)
+            run_cmd("mv {0} {0}.`date -Iseconds`".format(SPEECHFILE))
 
 
 if __name__ == '__main__':
