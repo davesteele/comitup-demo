@@ -35,7 +35,7 @@ Enter your name to register your accomplishment.
 """
 
 
-wincmd = "grep comitup-web /var/log/syslog | grep POST | grep connect | head -1 | awk '{print $1 }'"
+wincmd = "grep comitup-web /var/log/syslog | grep POST | grep connect | head -1 | awk '{print $6 }'"
 
 def is_winner():
     win_ip = subprocess.check_output(wincmd, shell=True).decode().strip()
