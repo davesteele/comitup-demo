@@ -57,7 +57,7 @@ def main():
     with open("/var/log/syslog", 'w') as fp:
         pass
 
-    volume(70)
+    volume(100)
     say('starting comitup demo')
 
     # a record of tags that have already been noted
