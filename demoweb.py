@@ -12,7 +12,7 @@ home = """
 <title>Comitup Demo</title>
 </head>
 <body>
-Learn more about <a href="https://davesteele.github.io/comitup/">Comitup</a>.
+Learn more about <a href="http://davesteele.github.io/comitup/">Comitup</a>.
 <br>
 <br>
 {% if confirm %}
