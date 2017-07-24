@@ -27,8 +27,9 @@ The demo requires the following:
 
 * The following packages must be installed:
     - comitup
-    - python-flask
     - festival
+    
+* A speaker connected to the Pi audio port
 
 ## Installation
 
