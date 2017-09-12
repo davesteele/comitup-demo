@@ -55,8 +55,8 @@ def hello():
         name = request.form['name']
 
         with open("/tmp/comitup-demo.txt", 'w') as fp:
-            fp.write("We have a winner... ")
-            fp.write("And the raspberry pi zero goes to ... %s ... " % name)
+            fp.write("We have a winner ... ")
+            fp.write("%s ... " % name)
             fp.write("Repeat ... %s" % name)
 
         return render_template_string(home, winner=False, confirm=True)
