@@ -21,7 +21,7 @@ announced.
 
 The demo requires the following:
 
-* A Raspberry Pi 3, or Zero-W, with an additional USB wifi adapter
+* A Raspberry Pi 3, or Zero-W (or newer Pi), with an additional USB wifi adapter
   (the second adapter is a requirement of the demo, not Comitup, and
   the use of a wireless-enabled Pi avoids AP-mode compatibility problems)
 
