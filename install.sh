@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cp comitup-demo /usr/local/bin/
-cp demoweb.py /usr/local/bin/
+cp demoweb /usr/local/bin/
 
 cp comitup-demo.service /etc/systemd/system/
 cp demoweb.service /etc/systemd/system/
