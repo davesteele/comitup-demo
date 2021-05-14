@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    configure)
+        if ! grep "web_service: demoweb.service" /etc/comitup.conf ; then
+            sed -i 's/^web_service/# \0/' /etc/comitup.conf
+            sed -i 's/# \+web_service:.\+/\0\nweb_service: demoweb.service/' /etc/comitup.conf
+        fi
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

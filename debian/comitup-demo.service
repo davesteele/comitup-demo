@@ -1,0 +1,10 @@
+[Unit]
+Description=Comitup Audio Demonstration
+After=comitup.service
+Documentation=man:comitup-demo(8)
+
+[Service]
+ExecStart=/sbin/comitup-demo
+
+[Install]
+WantedBy=multi-user.target
