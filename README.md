@@ -3,7 +3,7 @@
 ## Description
 
 This is a quick-and-dirty demonstration package for the
-[Comitup](https://davesteele.github.io/comitup/) service. When the
+[**Comitup**](https://davesteele.github.io/comitup/) service. When the
 comitup-demo service is started (automatically, at boot), it will clear out
 any NetworkManager connections, and restart NetworkManager and Comitup.
 It will then announce, using a synthesized voice via an attached speaker,
@@ -35,3 +35,7 @@ The demo requires the following:
 
 Run *install.sh*, and set the *web_service* parameter in
 */etc/comitup.conf* to *demoweb.service*.
+
+Please note that this package is somewhat invasive. It rewrites the configured
+**Comitup** _comitup\_web_ service on installation, and wipes known
+NetworkManager Wifi connections on startup.
