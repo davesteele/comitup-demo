@@ -36,6 +36,6 @@ The demo requires the following:
 Run *install.sh*, and set the *web_service* parameter in
 */etc/comitup.conf* to *demoweb.service*.
 
-Please note that this package is somewhat invasive. It rewrites the configured
-**Comitup** _comitup\_web_ service on installation, and wipes known
+Please note that this package is somewhat invasive. It rewrites the **Comitup**
+_comitup\_web_ configuration variable on installation, and wipes known
 NetworkManager Wifi connections on startup.
